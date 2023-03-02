@@ -47,8 +47,8 @@ int readn(SOCKET s, char* buf, int len)
 
 	while (accruad < len)
 	{
-		single = recv(s, buf, len, 0);
-		if (single <= 0) 
+		single = recv(s, buf + accruad, len - accruad, 0);
+		if (single <= 0)
 		{
 			printf("client disconnect or failed\n");
 			return -1;
